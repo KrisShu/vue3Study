@@ -17,7 +17,7 @@ export default {
 	setup(){  
 		
 
-		// 数据
+		// 数据11111111111111
 		let name  = ref('张三')
 		let age =  ref(18)
 
@@ -61,6 +61,9 @@ export default {
 			hobby,
 			changeInfo
 		}
+
+	
+
 
 	}
 }
