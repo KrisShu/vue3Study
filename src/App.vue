@@ -17,7 +17,7 @@ export default {
 	setup(){  
 		
 
-		// 数据11111111111111
+		// 数据22
 		let name  = ref('张三')
 		let age =  ref(18)
 
