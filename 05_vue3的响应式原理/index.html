@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name:'张三',
+            age:18
+        }
+        // vue3中的响应式   Proxy代理对象  Reflect反射对象
+        const p = new Proxy(person,{
+            get(target,propName){
+                return Reflect.get(target,propName )
+            },
+            set(target,propName,value){
+                Reflect.set(target,propName,value)
+            },
+            deleteProperty(target,propName){
+                return  Reflect.defineProperty(target,propName)
+            }
+        })
+
+
+        // Reflect  反射对象
+
+        let obj ={
+            a:'1',
+            b:'2'
+        }
+
+        let a1 = obj.a
+        let a2 = Reflect.get(obj,'a')
+
+        //a1和a2值一样
+
+    </script>
+</body>
+</html>
