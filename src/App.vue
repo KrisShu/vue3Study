@@ -1,11 +1,12 @@
 <template>
-	<h1>我是app组件</h1>
+	<h1>我是app组件</h1><h1>我是app组件</h1>
 	<h2>姓名：{{name}}</h2>
 	<h2>年龄：{{age}}</h2>
 	<h3>工种：{{job.type}}</h3>
 	<h3>薪资：{{job.salary}}</h3>
 	<h3>爱好：{{hobby}}</h3>
 	<button @click="changeInfo">修改信息</button>
+	
 	
 	
 </template>
