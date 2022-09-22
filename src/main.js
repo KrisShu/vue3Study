@@ -4,6 +4,12 @@
 import { createApp } from 'vue'
 // 引入所有组件
 import App from './App.vue'
+import { createPinia } from 'pinia'
 
-// 
-createApp(App).mount('#app')
+const app  = createApp(App)
+
+// 创建pinia实例
+const pinia = createPinia();
+// 挂载到 vue 实例
+app.use(pinia)
+app.mount('#app')
