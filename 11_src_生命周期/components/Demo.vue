@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import  { ref} from 'vue'
+import  { ref,onBeforeMount,onMounted,onBeforeUpdate,onUpdated,onBeforeUnmount,onUnmounted } from 'vue'
 export default {
 	name: 'Demo',
 	setup(){  
@@ -13,14 +13,40 @@ export default {
 		function add (){
 			sum.value ++
 		}
+		//通过组合式api形式的生命周期
+		//vue3没有 breforeCreate 和 created 组合式api两个生命周期了  ;配置项可以
+		console.log("-----setup-----")
+		onBeforeMount(()=>{
+			console.log("------onBeforeMount-----")
+		})
+		onMounted(()=>{
+			console.log("------onMounted-----")
+		})
+		onBeforeUpdate(()=>{
+			console.log("------onBeforeUpdate-----")
+		})
+		onUpdated(()=>{
+			console.log("------onUpdated-----")
+		})
+		onBeforeUnmount(()=>{
+			console.log("------onBeforeUnmount-----")
+		})
+		onUnmounted(()=>{
+			console.log("------onUnmounted-----")
+		})
+
+
 		// 返回一个对象（常用）
 		return{
 			sum,
 			add
 		}
+
+
+		
 	},
 	// #region
-	// 生命周期
+	// 配置项生命周期
 	/* breforeCreate(){
 		console.log("---breforeCreate---")
 	},
