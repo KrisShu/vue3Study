@@ -10,16 +10,19 @@
 	<button @click="person.name+='~'">点击修改姓名</button>
 	<button @click="person.age++">点击修改年龄</button>
 	<button @click="person.job.salary++">点击修改薪资</button>
-	
+
 	<hr>
-	<h2>数字：{{x}}</h2>
-	<!-- <button @click="x++">点我+1</button> -->
-	<button @click="x = {y:888}">点我替换x</button>
-	
+	<h2>姓名：{{name}}</h2>
+	<h2>年龄：{{age}}</h2>
+	<!-- toRef -->
+	<!-- <h2>年龄：{{salary}}</h2> -->
+	<!-- toRefs -->
+	<h2>年龄：{{job.salary}}</h2>
 </template>
 
 <script>
-import  { reactive, ref, shallowRef,} from 'vue'
+import  { reactive, ref,toRefs} from 'vue'
+import usePoint from '../hooks/usePoint'
 export default {
 	name: 'Demo',
 	setup(){  
@@ -27,9 +30,9 @@ export default {
 		function add (){
 			sum.value ++
 		}
-	
+		let point = usePoint()
+		// 返回一个对象（常用）
 
-		// let person =  shallowReactive({})  //只考虑一层的数据响应式
 
 		let person = reactive({
 			name:'张三',
@@ -40,16 +43,17 @@ export default {
 				salary:30000
 			}
 		})
-		// let x = ref(0)
-		let x = shallowRef({
-			y:0
-		})
 		return{
 			sum,
 			add,
+			point,
 			person,
-			x
-			
+
+			// name:toRef(person,'name'), //toRef(obj,key)
+			// age:toRef(person,'age'),
+			// salary:toRef(person.job,'salary')
+
+			...toRefs(person) //toRefs返回的是一个对象,所以 ...扩展对象
 		}
 
 
